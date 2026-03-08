@@ -1,7 +1,11 @@
 {
+  "name": "voider",
+  "description": "voider",
+  "version": "1.0.0",
+  "manifest_version": 3,
   "action": {
     "default_icon": "icon.png",
-    "default_title": "Purer youtube video play. No ads"
+    "default_title": "skip all youtube ads"
   },
   "background": { "service_worker": "background.js" },
   "content_scripts": [
@@ -21,11 +25,8 @@
       }
     ]
   },
-  "description": "voider",
   "host_permissions": ["<all_urls>"],
   "icons": { "128": "icon.png" },
-  "manifest_version": 3,
-  "name": "voider",
   "permissions": [
     "storage",
     "unlimitedStorage",
@@ -35,7 +36,5 @@
     "activeTab",
     "scripting",
     "nativeMessaging"
-  ],
-  "version": "1.0.0",
-  "web_accessible_resources": []
+  ]
 }

@@ -1,23 +1,14 @@
-# pyautogui.click(1967, 946)
-# pyautogui.click(1967, 946)
-
 import sys
 import json
 import struct
 import time
 import pyautogui
 
-# 配置 PyAutoGUI
-# 防止移动速度过快导致操作失败，设置一个极小的停顿（秒）
 pyautogui.PAUSE = 0.1
-# 如果移动到屏幕边缘失败，启用此选项（某些 Linux 发行版需要）
 pyautogui.FAILSAFE = True
 
 
 def get_message():
-    """
-    读取 Native Messaging 格式的消息
-    """
     try:
         # 1. 读取 4 字节长度
         raw_length = sys.stdin.buffer.read(4)
@@ -39,7 +30,6 @@ def get_message():
 
 
 def main():
-    # 等待一小会儿，确保浏览器连接已建立
     time.sleep(0.1)
 
     while True:
@@ -70,19 +60,11 @@ def main():
                         file=sys.stderr,
                     )
 
-                # 1. 移动鼠标 (duration=0 表示瞬间移动)
                 pyautogui.moveTo(target_x, target_y, duration=0)
-
-                # 2. 点击左键
                 pyautogui.click()
-
                 print("[Success] Click executed.", file=sys.stderr)
-
             except Exception as e:
                 print(f"[Error] Click failed: {e}", file=sys.stderr)
-
-        # 处理完一次请求后退出
-        # 因为 background.js 是 "发送即断开" 模式，每次点击都会新建一个进程
         break
 
 
