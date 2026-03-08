@@ -1,0 +1,7 @@
+{
+  "name": "tech.ticktech.mouse",
+  "description": "native mouse click",
+  "path": "/Users/ticktech/usr/project/github/voider/src/mouse.sh",
+  "type": "stdio",
+  "allowed_origins": ["chrome-extension://plhcdholimnphmnnodkmhjedgalobefa/"]
+}

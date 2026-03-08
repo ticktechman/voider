@@ -1,0 +1,41 @@
+{
+  "action": {
+    "default_icon": "icon.png",
+    "default_title": "Purer youtube video play. No ads"
+  },
+  "background": { "service_worker": "background.js" },
+  "content_scripts": [
+    {
+      "all_frames": true,
+      "js": ["content.js"],
+      "matches": ["*://*.youtube.com/*", "*://youtube.com/*"],
+      "run_at": "document_start"
+    }
+  ],
+  "declarative_net_request": {
+    "rule_resources": [
+      {
+        "enabled": true,
+        "id": "rules",
+        "path": "blockingrules.json"
+      }
+    ]
+  },
+  "description": "voider",
+  "host_permissions": ["<all_urls>"],
+  "icons": { "128": "icon.png" },
+  "manifest_version": 3,
+  "name": "voider",
+  "permissions": [
+    "storage",
+    "unlimitedStorage",
+    "declarativeNetRequest",
+    "declarativeNetRequestWithHostAccess",
+    "declarativeNetRequestFeedback",
+    "activeTab",
+    "scripting",
+    "nativeMessaging"
+  ],
+  "version": "1.0.0",
+  "web_accessible_resources": []
+}
